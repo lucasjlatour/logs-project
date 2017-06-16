@@ -10,9 +10,9 @@ Before using, you need to create a view in the database for the program to run p
 
 The news database includes three tables:
 
-*The authors table includes information about the authors of articles.
-*The articles table includes the articles themselves.
-*The log table includes one entry for each time a user has accessed the site.
+* The authors table includes information about the authors of articles.
+* The articles table includes the articles themselves.
+* The log table includes one entry for each time a user has accessed the site.
 
 
 CREATE VIEW auth_views AS SELECT articles.author, COUNT(log.path) AS views FROM articles, log, authors WHERE '/article/' || articles.slug = log.path GROUP BY articles.author;
