@@ -15,7 +15,7 @@ The news database includes three tables:
 
 Before using, you need to create a view in the database for the program to run properly.
 
-CREATE VIEW auth_views AS SELECT articles.author, COUNT(log.path) AS views FROM articles, log, authors WHERE '/article/' || articles.slug = log.path GROUP BY articles.author;
+CREATE VIEW auth_views AS SELECT articles.author, COUNT(log.path) AS views FROM articles, log, authors WHERE '/article/' || articles.slug = log.path AND log.status = '200 OK' GROUP BY articles.author;
 
 
 ## Expected Output
