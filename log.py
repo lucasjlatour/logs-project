@@ -23,7 +23,7 @@ def get_top_authors():
     c.execute('''SELECT authors.name, auth_views.views
                  FROM authors, auth_views
                  WHERE authors.id = auth_views.author
-                 ORDER BY auth_views.views DESC LIMIT 4;''')
+                 ORDER BY auth_views.views DESC;''')
     authors = c.fetchall()
     print("\nTop viewed authors:")
     n = 0
